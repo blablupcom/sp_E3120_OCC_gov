@@ -104,6 +104,7 @@ for link in links:
         title = link.encode_contents(formatter='html').replace('&nbsp;',' ')
         title = title.upper().strip()
         csvYr = title.split(' ')[1]
+<<<<<<< HEAD
         if 'CSV' in csvYr or not csvYr:
             try:
                 csvYr = re.search('(\d{4})\.', url).groups()[0]
@@ -111,6 +112,9 @@ for link in links:
                 csvYr = link.find_previous('h3').text
 
         csvMth = title[:3]
+=======
+        csvMth = title.split(' ')[0][:3]
+>>>>>>> 731a05f072028c1911e5abff84b2f3144aa988f8
         csvMth = csvMth.upper()
         csvMth = convert_mth_strings(csvMth)
         data.append([csvYr, csvMth, url])
@@ -134,4 +138,8 @@ for row in data:
 if errors > 0:
     raise Exception("%d errors occurred during scrape." % errors)
 
+<<<<<<< HEAD
 #### EOF
+=======
+#### EOF
+>>>>>>> 731a05f072028c1911e5abff84b2f3144aa988f8
